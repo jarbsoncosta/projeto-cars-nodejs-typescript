@@ -42,6 +42,7 @@ class CategoriesRepository implements ICategoriesRepository {
         );
         return category;
     }
+    
 }
 
 export default CategoriesRepository;
