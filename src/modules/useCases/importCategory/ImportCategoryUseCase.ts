@@ -30,6 +30,7 @@ class ImportCategoryUseCase{
                       
         })
             .on("end", () => {
+                fs.promises.unlink(file.path) //remover o arquivo importado após o cadastro
                     resolve(categories)
             })
             .on("error", (err) => {
