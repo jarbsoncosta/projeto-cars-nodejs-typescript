@@ -34,7 +34,28 @@ Não deve ser possivel cadastrar uma especificação para um carro não cadastra
 Não deve ser possivel cadastrar uma especificação ja existente para o mesmo carro
 O usuário responsavel pelo cadastro deve ser admnistrador
 
+# Cadastro de imagens de carro
 
+**RF**
+Deve ser possivel cadastrar imagem do carro
+
+**RNF**
+Utilizar o multer para upload de arquivos
+
+**RN**
+O usuário deve cadastrar mais de uma imagem para o mesmo carro
+O usuário responsavel pelo cadastro deve ser admnistrador
+
+
+# Aluguel de Carro
+
+**RF**
+Deve ser possivel cadastrar um aluguel
+
+**RN**
+O aluguel deve ter duração mínima de 24 horas
+Não deve ser possivel cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário
+Não deve ser possivel cadastrar um novo aluguel caso já exista um aberto para o mesmo carro
 
 
 
