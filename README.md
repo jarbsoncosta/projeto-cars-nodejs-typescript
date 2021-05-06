@@ -2,7 +2,7 @@
 
 **RF**
 Deve ser possivel cadastrar um novo carro
-Deve ser possivel listar todas as categorias
+
 **RN**
 Não deve ser possivel cadastrar um carro com uma placa já existente
 Não deve ser possivel alterar a palca de um carro já cadastrado.
@@ -15,7 +15,7 @@ O usuário responsavel pelo cadastro deve ser admnistrador
 **RF**
 Deve ser possivel listar todos os carros disponiveis
 Deve ser possivel listar todos os carros disponiveis pelo nome da categoria
-Deve ser possivel listar todos os carros disponiveis pelo nome da marca
+Deve ser possivel listar todos os carros disponiveis pelo nome da marca 
 Deve ser possivel listar todos os carros disponiveis pelo nome do carro
 
 **RN**
