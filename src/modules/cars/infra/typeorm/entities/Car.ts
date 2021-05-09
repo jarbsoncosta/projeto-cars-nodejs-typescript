@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 
-import Category from '@modules/cars/infra/typeorm/entities/Category';
+import { Category } from './Category';
 
 @Entity('cars')
 class Car {
