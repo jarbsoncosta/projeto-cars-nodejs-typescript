@@ -21,21 +21,21 @@ class Car {
     @Column()
     daily_rate: number;
     @Column()
-    available = true;
+    available: boolean;
     @Column()
     license_plate: string;
     @Column()
     fine_amount: number;
     @Column()
     brand: string;
-    nu;
 
     @ManyToOne(() => Category)
     @JoinColumn({ name: 'category_id' })
     category: Category;
 
-    @CreateDateColumn()
+    @Column()
     category_id: string;
+
     @CreateDateColumn()
     created_at: Date;
 
