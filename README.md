@@ -1,13 +1,12 @@
 # Cadastro de Carro
 
 **RF**
-Deve ser possivel cadastrar um novo carro
+Deve ser possivel cadastrar um novo carro - ok
 
 **RN**
-Não deve ser possivel cadastrar um carro com uma placa já existente
-Não deve ser possivel alterar a palca de um carro já cadastrado.
-O carro de ve ser cadastrado como disponibilidade padrão (true) 
-O usuário responsavel pelo cadastro deve ser admnistrador
+Não deve ser possivel cadastrar um carro com uma placa já existente - ok
+O carro deve ser cadastrado como disponibilidade padrão (true) -ok
+O usuário responsavel pelo cadastro deve ser admnistrador - ok
 
 
 # Listagem de Carros

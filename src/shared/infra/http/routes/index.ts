@@ -13,6 +13,6 @@ routes.use('/categories', categoriesRoutes);
 routes.use('/specifications', specificationsRoutes);
 routes.use('/users', usersRoutes);
 routes.use(authenticateRoutes);
-routes.use('/carros', carsRouters);
+routes.use('/cars', carsRouters);
 
 export default routes;

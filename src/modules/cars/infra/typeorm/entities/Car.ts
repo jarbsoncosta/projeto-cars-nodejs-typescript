@@ -13,9 +13,9 @@ import { Category } from './Category';
 @Entity('cars')
 class Car {
     @PrimaryColumn()
-    id?: string;
+    id: string;
     @Column()
-    name: string;
+    name?: string;
     @Column()
     description: string;
     @Column()
@@ -42,6 +42,7 @@ class Car {
     constructor() {
         if (!this.id) {
             this.id = uuidv4();
+            this.available = true;
         }
     }
 }
