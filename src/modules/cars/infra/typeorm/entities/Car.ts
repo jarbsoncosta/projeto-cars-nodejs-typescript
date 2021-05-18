@@ -15,7 +15,7 @@ class Car {
     @PrimaryColumn()
     id: string;
     @Column()
-    name?: string;
+    name: string;
     @Column()
     description: string;
     @Column()
