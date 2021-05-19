@@ -24,8 +24,7 @@ O usuário não precisa esta logado para listar os carros
 
 **RF**
 Deve ser possivel cadastrar uma especificação para um carro
-Deve ser possivel listar todas as especificações 
-Deve ser possivel listar todos os carros
+
 
 **RN**
 

@@ -47,16 +47,23 @@ class CarsRepository implements ICarRepository {
             .where('available = :available', { available: true });
 
         if (brand) {
-            carsQuery.andWhere('c.brand = :brand', { brand });
+            carsQuery.andWhere('LOWER(brand) = LOWER(:brand)', { brand });
         }
         if (name) {
-            carsQuery.andWhere('c.name = :name', { name });
+            carsQuery.andWhere('LOWER(name) = LOWER(:name)', { name });
         }
         if (category_id) {
-            carsQuery.andWhere('c.category_id = :category_id', { category_id });
+            carsQuery.andWhere('LOWER(category_id) = LOWER(:category_id)', {
+                category_id,
+            });
         }
+
         const cars = await carsQuery.getMany();
         return cars;
+    }
+    async findById(id: string): Promise<Car> {
+        const car = await this.repository.findOne(id);
+        return car;
     }
 }
 
