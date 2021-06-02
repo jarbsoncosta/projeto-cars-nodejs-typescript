@@ -5,8 +5,10 @@ import { v4 as uuidv4 } from 'uuid';
 class Specification {
     @PrimaryColumn()
     id?: string;
+
     @Column()
     name: string;
+
     @Column()
     description: string;
 
@@ -20,4 +22,4 @@ class Specification {
     }
 }
 
-export default Specification;
+export { Specification };

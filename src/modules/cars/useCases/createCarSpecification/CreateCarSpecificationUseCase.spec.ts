@@ -40,8 +40,8 @@ it('should be able to add a new specification to the car', async () => {
     });
 
     const specification = await specificationRepositoryInMemory.create({
-        description: 'test',
         name: 'test',
+        description: 'test',
     });
 
     const specification_id = [specification.id];
