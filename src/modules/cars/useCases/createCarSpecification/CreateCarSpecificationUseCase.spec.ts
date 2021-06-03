@@ -40,8 +40,8 @@ it('should be able to add a new specification to the car', async () => {
     });
 
     const specification = await specificationRepositoryInMemory.create({
-        name: 'test',
         description: 'test',
+        name: 'test',
     });
 
     const specification_id = [specification.id];
@@ -50,6 +50,8 @@ it('should be able to add a new specification to the car', async () => {
         car_id: car.id,
         specification_id,
     });
+    console.log(specificationsCars);
+
     expect(specificationsCars).toHaveProperty('specifications');
     expect(specificationsCars.specifications.length).toBe(1);
 });

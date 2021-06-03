@@ -15,12 +15,10 @@ export default class CreateEpecificationsCar1621297723677
                     {
                         name: 'car_id',
                         type: 'uuid',
-                        isNullable: true,
                     },
                     {
                         name: 'specification_id',
                         type: 'uuid',
-                        isNullable: true,
                     },
                     {
                         name: 'created_at',
