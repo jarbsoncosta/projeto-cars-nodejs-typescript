@@ -1,11 +1,9 @@
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 
 import { Rental } from '@modules/rentals/infra/typeorm/entities/Rental';
 import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 import AppError from '@shared/errors/AppError';
-
-dayjs.extend(utc);
+import { IDateProvider } from '@shared/provider/DateProvider/IDateProvider';
 
 interface IRequest {
     car_id: string;
@@ -14,7 +12,10 @@ interface IRequest {
 }
 
 class CreateRentalsUseCase {
-    constructor(private rentalsRepository: IRentalsRepository) {}
+    constructor(
+        private rentalsRepository: IRentalsRepository,
+        private dateProvider: IDateProvider,
+    ) {}
 
     async execute({
         car_id,
@@ -39,14 +40,12 @@ class CreateRentalsUseCase {
         }
         // O aluguel deve ter duração minima de 24 horas
 
-        const expectedReturnDateFormat = dayjs(expected_return_date)
-            .utc()
-            .local()
-            .format();
+        const dateNow = this.dateProvider.dateNow();
 
-        const dateNow = dayjs().utc().local().format();
-
-        const compare = dayjs(expectedReturnDateFormat).diff(dateNow, 'hours');
+        const compare = this.dateProvider.compareInHours(
+            dateNow,
+            expected_return_date,
+        );
 
         if (compare < minimumHour) {
             throw new AppError('Invalid return time');
