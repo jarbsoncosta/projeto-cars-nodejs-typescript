@@ -13,15 +13,14 @@ class RentalsRepository implements IRentalsRepository {
     constructor() {
         this.repository = getRepository(Rental);
     }
-    findOpenRentalByUser(user_id: string): Promise<Rental> {
-        throw new Error('Method not implemented.');
+    async findOpenRentalByUser(user_id: string): Promise<Rental> {
+        const openByUser = await this.repository.findOne(user_id);
+        return openByUser;
     }
     async findOpenRentalByCar(car_id: string): Promise<Rental> {
-        const rental = await this.repository.findOne(car_id);
-        if (rental.start_date) {
-            throw new AppError('');
-        }
-        return rental;
+        const openByCar = await this.repository.findOne(car_id);
+
+        return openByCar;
     }
 
     async create({
@@ -34,6 +33,8 @@ class RentalsRepository implements IRentalsRepository {
             user_id,
             expected_return_date,
         });
+
+        await this.repository.save(rental);
         return rental;
     }
 }
