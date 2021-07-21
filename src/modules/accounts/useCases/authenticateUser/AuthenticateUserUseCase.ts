@@ -36,7 +36,7 @@ class AuthenticateUseCase {
         if (!passworMatch) {
             throw new AppError('Email ou password incorret!');
         }
-        // segendo token
+        // gerando token
         const token = sign({}, 'd41d8cd98f00b204e9800998ecf8427e', {
             subject: user.id,
             expiresIn: '1d',
