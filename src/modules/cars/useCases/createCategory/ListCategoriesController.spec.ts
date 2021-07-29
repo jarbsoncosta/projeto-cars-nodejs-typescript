@@ -1,3 +1,5 @@
+
+
 import request from 'supertest'
 import { app } from '@shared/infra/http/app'
 import createConnection from '@shared/infra/typeorm'
@@ -29,14 +31,14 @@ describe("Create Category Controller", () => {
 
     })
 
-    //será possivel cadastrar uma nova categoria
-    it("should be able to create a new category", async () => {
+    //será possivel listar todas as categorias
+    it("should be able to list all categories", async () => {
         const responseToken = await request(app).post("/sessions").send({
             email: "admin@rentx.com.br",
             password:"admin"
         })
         const {token} = responseToken.body
-    const response =await request(app).post("/categories")
+    await request(app).post("/categories")
             .send({
                 name: "sedan",
                 description: "carro passeio"
@@ -44,24 +46,13 @@ describe("Create Category Controller", () => {
             }).set({
                 Authorization: `Bearer ${token}`
             })
-        expect(response.status).toBe(201)
+        const response = await request(app).get("/categories")
+        console.log(response.body)
+        expect(response.status).toBe(200)
+        expect(response.body.length).toBe(1)
+        expect(response.body[0]).toHaveProperty("id");
+        expect(response.body[0].name).toEqual("sedan")
     })
 
-    //não será possivel crear uma nova categoria com nome ja existente 
-      it("shoutd not be able to create a new category with name exists", async () => {
-        const responseToken = await request(app).post("/sessions").send({
-            email: "admin@rentx.com.br",
-            password:"admin"
-        })
-        const {token} = responseToken.body
-    const response =await request(app).post("/categories")
-            .send({
-                name: "sedan",
-                description: "carro passeio"
-
-            }).set({
-                Authorization: `Bearer ${token}`
-            })
-        expect(response.status).toBe(400)
-    })
+   
 })
