@@ -74,7 +74,7 @@ class CarsRepository implements ICarRepository {
         await this.repository.createQueryBuilder()
             .update()
             .set({ available })
-            .where("id = :id")
+            .where("id = :id") //onde o id seja igual ao :id
             .setParameters({ id })
             .execute()
         //Update cars set available = 'true' where id =id
