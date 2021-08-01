@@ -13,7 +13,7 @@ let connection: Connection;
 describe("Create Category Controller", () => {
 
     beforeAll(async() => {
-        connection = await createConnection('database')
+        connection = await createConnection()
         await connection.runMigrations()
         const id = uuidv4();
         const password = await hash('admin', 8);

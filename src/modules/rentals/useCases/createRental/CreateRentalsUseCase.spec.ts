@@ -4,10 +4,13 @@ import { RentalsRepositoryInMemory } from '@modules/rentals/repositories/in-memo
 import AppError from '@shared/errors/AppError';
 import { DayJsDateProvider } from '@shared/provider/DayJSDateProvider/DayJsDateProvider';
 
+
+import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory/CarsRepositoryInMemory';
 import { CreateRentalsUseCase } from './CreateRentalsUseCase';
 
 let createRentalsUseCase: CreateRentalsUseCase;
 let rentalsReposityInMemory: RentalsRepositoryInMemory;
+let carsRepositoryInMemory: CarsRepositoryInMemory
 let dayJsDateProvider: DayJsDateProvider;
 
 describe('Create Rental', () => {
@@ -15,11 +18,13 @@ describe('Create Rental', () => {
 
     beforeEach(() => {
         rentalsReposityInMemory = new RentalsRepositoryInMemory();
+        carsRepositoryInMemory = new CarsRepositoryInMemory()
         dayJsDateProvider = new DayJsDateProvider();
 
         createRentalsUseCase = new CreateRentalsUseCase(
             rentalsReposityInMemory,
             dayJsDateProvider,
+            carsRepositoryInMemory
         );
     });
     // deve ser capaz de criar um novo aluguel

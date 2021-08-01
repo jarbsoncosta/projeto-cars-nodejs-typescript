@@ -21,13 +21,15 @@ describe('List Cars', () => {
             fine_amount: 100,
             brand: 'car_brand',
             category_id: 'category_id',
+           
         });
 
         const cars = await listAvailableCarsUseCase.execute({});
 
         expect(cars).toEqual([car]);
     });
-    it('should be able to list all available cars bay brand', async () => {
+    //deve ser capaz de listar todos os carros disponíveis por marca
+    it('must be able to list all available cars by brand', async () => {
         const car = await carsRepositoryInMemory.create({
             name: 'Car2',
             description: 'car description',
@@ -36,6 +38,7 @@ describe('List Cars', () => {
             fine_amount: 100,
             brand: 'car_brand_test',
             category_id: 'category_id',
+          
         });
 
         const cars = await listAvailableCarsUseCase.execute({
@@ -44,6 +47,8 @@ describe('List Cars', () => {
 
         expect(cars).toEqual([car]);
     });
+
+    //deve ser capaz de listar todos os carros disponíveis por nome
     it('should be able to list all available cars bay name', async () => {
         const car = await carsRepositoryInMemory.create({
             name: 'Car3',
@@ -53,6 +58,7 @@ describe('List Cars', () => {
             fine_amount: 100,
             brand: 'car_brand',
             category_id: 'category_id',
+           
         });
 
         const cars = await listAvailableCarsUseCase.execute({
@@ -62,6 +68,7 @@ describe('List Cars', () => {
 
         expect(cars).toEqual([car]);
     });
+    //deve ser capaz de listar todos os carros disponíveis por categoria
     it('should be able to list all available cars bay category', async () => {
         const car = await carsRepositoryInMemory.create({
             name: 'Car4',
@@ -71,6 +78,7 @@ describe('List Cars', () => {
             fine_amount: 100,
             brand: 'car_brand_test',
             category_id: 'Fiat',
+           
         });
 
         const cars = await listAvailableCarsUseCase.execute({

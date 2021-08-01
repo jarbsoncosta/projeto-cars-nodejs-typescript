@@ -15,7 +15,7 @@ import routes from './routes';
 
 const app = express();
 
-createConnection("database");
+createConnection("localhost");
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile)); //
 
 app.use(express.json());
