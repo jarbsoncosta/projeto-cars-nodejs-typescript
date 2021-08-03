@@ -26,6 +26,7 @@ class DevolutionRentalUseCase {
         //verificar se existe um aluguel
         const rental = await this.rentalsRepository.findById(id)
         const car = await this.carsRepository.findById(rental.car_id)
+        
         const minimum_daily = 1
 
         if (!rental) {
