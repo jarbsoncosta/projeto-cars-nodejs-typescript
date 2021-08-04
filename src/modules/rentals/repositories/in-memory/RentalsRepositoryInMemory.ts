@@ -3,7 +3,7 @@ import { Rental } from '@modules/rentals/infra/typeorm/entities/Rental';
 import { ICreateRentalDTO, IRentalsRepository } from '../IRentalsRepository';
 
 class RentalsRepositoryInMemory implements IRentalsRepository {
-   
+  
     rentals: Rental[] = [];
 
     async create({
@@ -32,9 +32,13 @@ class RentalsRepositoryInMemory implements IRentalsRepository {
             rental => rental.user_id === user_id && !rental.end_date,
         );
     }
-     findById(id: string): Promise<Rental> {
-        throw new Error('Method not implemented.');
+     async findById(id: string): Promise<Rental> {
+        return this.rentals.find(rental=>rental.id ===id)
+     }
+    async findByUser(user_id: string): Promise<Rental[]> {
+          return this.rentals.filter(rental => rental.user_id === user_id)
+        
     }
+   
 }
-
 export { RentalsRepositoryInMemory };
