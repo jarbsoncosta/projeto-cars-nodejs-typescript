@@ -18,6 +18,8 @@ class UsersTokenRepository implements IUsersTokensRepository{
             expires_data
         })
 
+        await this.repository.save(userToken)
+
         return userToken
         
     }
