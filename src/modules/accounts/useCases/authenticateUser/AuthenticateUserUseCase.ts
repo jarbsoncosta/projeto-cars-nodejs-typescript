@@ -56,10 +56,9 @@ class AuthenticateUseCase {
             subject: user.id,
             expiresIn: expires_in_refresh_token
         })
+       
 
         const refresh_token_expires_date = this.dayJsDateProvider.addDays( expires_refresh_token_days)
-
-
 
         await this.usersTokenRepository.create({
             user_id: user.id,
@@ -68,11 +67,6 @@ class AuthenticateUseCase {
             
 
         })
-
-
-
-
-
         const tokenReturn: IResponse = {
             token,
             user: {
