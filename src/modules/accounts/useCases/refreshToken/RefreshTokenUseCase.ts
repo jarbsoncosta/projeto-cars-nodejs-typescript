@@ -3,14 +3,14 @@ import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTok
 import AppError from '@shared/errors/AppError'
 import { IDateProvider } from '@shared/provider/DateProvider/IDateProvider'
 import {sign, verify} from 'jsonwebtoken'
-import { inject } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 
 interface IPayload{
     sub: string,
     email:string
 }
 
-
+@injectable()
 class RefreshTokenUseCase{
     constructor(
         @inject("UsersTokenRepository")
@@ -45,18 +45,15 @@ class RefreshTokenUseCase{
             expiresIn: expires_in_refresh_token
           })
         
-        const refresh_token_expires_date = this.dayJsDateProvider.addDays(expires_refresh_token_days)
+        const expires_data = this.dayJsDateProvider.addDays(expires_refresh_token_days)
         
         await this.usersTokenRepository.create({
-            expires_data:refresh_token_expires_date,
+            expires_data,
             refresh_token,
             user_id
         })
         
-        return refresh_token
-
-
-         
+        return refresh_token         
         
     }
 }
