@@ -71,3 +71,14 @@ Caso o horario de devolução seja superior ao horario previsto de entrega, deve
 Caso haja multa, deverá ser somado ao total do aluguel
 O usúario deve estar logado na aplicação
 
+
+
+**RF**
+Deve ser possivel o usúario recuperar a senha informando o e-mail
+O usúario deve receber um e-mail com passo a passo para recuperação da senha
+O usúario deve conseguir inserir uma nova senha
+
+**RN**
+O usúario precisa informar uma nova senha
+O link enviado para a recuperação deve expirar em 3 horas
+

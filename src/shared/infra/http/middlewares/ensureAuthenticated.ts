@@ -29,7 +29,7 @@ export async function ensureAuthenticated(
         // verifica se existe um token
         const { sub: user_id } = verify(
             token,
-            auth.secret_refresh_token,
+            auth.secret_refresh_token, //recebe o token do refresh token
         ) as IPayload;
        
        //pegando o usuario e o refresh token
