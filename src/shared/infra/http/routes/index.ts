@@ -7,6 +7,7 @@ import categoriesRoutes from './categories.routes';
 import rentalRoutes from './rental.routes';
 import specificationsRoutes from './specifications.routes';
 import usersRoutes from './users.routes';
+import { passwordRouter } from './password.routes';
 
 const routes = Router();
 
@@ -16,5 +17,6 @@ routes.use('/users', usersRoutes);
 routes.use(authenticateRoutes);
 routes.use('/cars', carsRouters);
 routes.use('/rentals', rentalRoutes);
+routes.use("/password", passwordRouter)
 
 export default routes;
