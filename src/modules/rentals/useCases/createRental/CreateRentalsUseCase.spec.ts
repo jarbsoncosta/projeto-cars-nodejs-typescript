@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 import { RentalsRepositoryInMemory } from '@modules/rentals/repositories/in-memory/RentalsRepositoryInMemory';
 import AppError from '@shared/errors/AppError';
-import { DayJsDateProvider } from '@shared/provider/DayJSDateProvider/DayJsDateProvider';
+import { DayJsDateProvider } from '@shared/provider/DateProvider/implementations/DayJsDateProvider';
 
 
 import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory/CarsRepositoryInMemory';

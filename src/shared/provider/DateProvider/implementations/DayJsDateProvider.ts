@@ -35,9 +35,8 @@ class DayJsDateProvider implements IDateProvider {
         
     }
     compareIfBefore(start_date: Date, end_date: Date): boolean {
-        const end_date_utc = this.convertToUTC(end_date);
-        const start_date_utc = this.convertToUTC(start_date)
-      return dayjs(end_date_utc).diff(start_date_utc, "days")
+     
+      return dayjs(start_date).isBefore(end_date)
     }
   
 }
