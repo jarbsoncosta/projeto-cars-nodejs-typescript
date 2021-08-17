@@ -1,20 +1,32 @@
 import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
+
 import { UserRepositoryInMemory } from '@modules/accounts/repositories/in-memory/UserRepositoryInMemory';
+import { UsersTokensRepositoryInMemory } from '@modules/accounts/repositories/in-memory/UsersTokensRepositoryInMemory';
 import AppError from '@shared/errors/AppError';
+import { DayJsDateProvider } from '@shared/provider/DateProvider/implementations/DayJsDateProvider';
 
 import CreateUserUseCase from '../createUser/CreateUserUseCase';
 import { AuthenticateUseCase } from './AuthenticateUserUseCase';
 
 let autenticateUserUseCase: AuthenticateUseCase;
-let usersRepositoryInMemory: UserRepositoryInMemory;
 let createUserUseCase: CreateUserUseCase;
+let usersRepositoryInMemory: UserRepositoryInMemory;
+let usersTokensRepositoryInMemory: UsersTokensRepositoryInMemory
+let dateProviver: DayJsDateProvider
+
 
 describe('Authenticate User', () => {
     beforeEach(() => {
         usersRepositoryInMemory = new UserRepositoryInMemory();
+        usersTokensRepositoryInMemory = new UsersTokensRepositoryInMemory()
+        dateProviver = new DayJsDateProvider()
+
         autenticateUserUseCase = new AuthenticateUseCase(
             usersRepositoryInMemory,
+            usersTokensRepositoryInMemory,
+            dateProviver
         );
+        
         createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
     });
     // deve ser capaz de autenticar um usuário
